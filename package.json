@@ -1,0 +1,25 @@
+{
+  "name": "node-launch-express-validator",
+  "version": "0.0.1",
+  "description": "example app launchpage feature a mailchimp signup and validator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomicConsulting/node-launch-mailchimp-launchpage-validator.git"
+  },
+  "author": "tim mccracken @ atomic consulting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AtomicConsulting/node-launch-mailchimp-launchpage-validator/issues"
+  },
+  "homepage": "https://github.com/AtomicConsulting/node-launch-mailchimp-launchpage-validator#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.5",
+    "superagent": "^3.5.0"
+  }
+}
