@@ -32,7 +32,10 @@ app.use(passport.session());
 
 
 app.get('/', function(req, res){
-    res.render('landing')
+    req.session.success = true;
+
+    res.render('landing', {errors: req.session.errors, success: req.session.success})
+
 });
 
 app.post('/', function (req, res) {
@@ -51,17 +54,17 @@ app.post('/', function (req, res) {
   //   req.session.success = true;
   // }
   req.getValidationResult().then(function(result) {
-    // do something with the validation result
-    if(result.isEmpty() === true){
-      res.send("yes. it is empty")
-    } else{
-      var errors = result.mapped()
-      req.session.errors = errors;
-      console.log(errors.msg)
-      console.log(req.session.errors)
-      res.redirect('back')
+    if (!result.isEmpty()) {
+      var errors = result.array();
+      res.status(400).send(errors);
+      req.session.success = false;
+
+      res.render('landing', {errors: errors, success: req.session.success});
+      return;
     }
-})
+    res.send('no errors')
+
+  });
 
 
 
