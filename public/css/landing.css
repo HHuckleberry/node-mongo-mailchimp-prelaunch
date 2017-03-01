@@ -1,0 +1,46 @@
+.page-center {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    margin: auto;
+    color: #f8f8f8;
+    background: url(../images/background) no-repeat center center;
+    background-size: cover;
+}
+.form-control{
+  width: 30%;
+  margin: 2px auto;
+  font-weight: 300;
+  color: #40a977;
+  font-family: "Roboto Slab";
+}
+.btn-primary{
+  background-color: #BA3525;
+  border-color: #BA3525;
+}
+.lSaver{
+  font-family: 'Life Savers';
+}
+#rocket{
+    background: url(../images/rocket.png) no-repeat center;
+    background-size: contain;
+    padding: 7%;
+}
+
+body{
+  background-color: #66595c;
+  font-family: 'Atomic Age';
+  height: 100%;
+}
+.thumbnail{
+  background-color: inherit;
+  border: 0px
+}
+.thumbnail:hover {
+  opacity: 1;
+}
+.built-with {
+  max-width: 360px;
+  margin: 40px auto 0;
+  font-size: 1.5em;
+}

@@ -6,7 +6,7 @@ var express             = require("express"),
     expressSession      = require("express-session"),
     mongoose            = require("mongoose"),
     User                = require("./models/user"),
-    passportLM          = require("passport"),
+    passport            = require("passport"),
     passportLM          = require("passport-local-mongoose");
     validator           = require("express-validator"),
     mailchimpInstance   = '',
@@ -111,7 +111,7 @@ app.post('/', function (req, res) {
 })
 
 app.get('/*', function(req, res){
-    res.render('error')
+    res.render('404.ejs')
 })
 
 // app.listen(process.env.PORT, process.env.IP, function(){console.log("app started")})
