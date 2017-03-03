@@ -57,6 +57,7 @@ app.post('/', function (req, res, nexe) {
     if (!result.isEmpty()) {
       var errors = result.mapped();
       req.session.errors = errors;
+      console.log(errors)
       console.log(req.session.errors)
       res.render('landing', {errors: errors, success: req.session.success});
     }

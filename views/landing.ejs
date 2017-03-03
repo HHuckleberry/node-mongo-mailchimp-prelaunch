@@ -13,6 +13,7 @@
                         <h4 class="lSaver"> Integrate Mailchimp to send out updates and keep those interested informed.</h4>
                         <hr class="intro-divider">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
                       <% if (errors !== undefined){ %>
@@ -20,6 +21,14 @@
                         <p><%= errors%> </p>
                       <% }%>
 >>>>>>> parent of 23c2e5e... arrrrgh
+=======
+                        <% if (errors !== undefined){ %>
+                          <p>there are errors on page</p>
+                          <% for each(error in errors){ %>
+                            <li><%= error.msg%></li>
+                          <% }) %>
+                        <% }  %>
+>>>>>>> parent of 47b6c01... sdfg
                         <form method="post" action="/">
                                 <div class="form-group">
                                     <label class="form-label" for="firstName"></label>
