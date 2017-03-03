@@ -24,9 +24,9 @@
 =======
                         <% if (errors !== undefined){ %>
                           <p>there are errors on page</p>
-                          <% for each(error in errors){ %>
-                            <li><%= error.msg%></li>
-                          <% }) %>
+                          <% for (const error of errors){ %>
+                            <li><%= error.msg %> </li>
+                          <% } %>
                         <% }  %>
 >>>>>>> parent of 47b6c01... sdfg
                         <form method="post" action="/">

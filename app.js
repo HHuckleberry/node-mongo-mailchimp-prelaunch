@@ -16,12 +16,15 @@ var express             = require("express"),
 app.set("view engine", 'ejs');
 //mongodb for desktop Testing
 mongoose.connect("mongodb://localhost/launchpage-example")
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use(bodyParser.json());
 app.use(validator());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(validator());
+app.use(express.static('public'));
+
 app.use(cookieParser());
 app.use(expressSession({
-  secret: 'this is an express session',
+  secret: 'a9ds8f98087asdytf87t6fagfuasd7zzccv7887',
   resave: false,
   saveUninitialized: true,
   cookie: {maxAge: 600},
@@ -36,13 +39,13 @@ app.get('/', function(req, res){
   res.render('landing', { errors: req.session.errors});
 
 
+
 });
 
 app.post('/', function (req, res, nexe) {
 
   req.assert('firstName', 'Please enter a First Name longer than 2 characters and not more than 15').len(2, 15);
   req.assert('lastName', 'Most people have a last names between 2 and 16 characters long').len(2, 16);
-  req.assert('email', 'required').notEmpty();
   req.assert('email', 'valid email required').isEmail();
   // var errors = req.validationErrors();
   // if (errors) {
@@ -55,11 +58,9 @@ app.post('/', function (req, res, nexe) {
   // }
   req.getValidationResult().then(function(result) {
     if (!result.isEmpty()) {
-      var errors = result.mapped();
-      req.session.errors = errors;
-      console.log(errors)
-      console.log(req.session.errors)
-      res.render('landing', {errors: errors, success: req.session.success});
+      var errors = result.array();
+      res.render('landing', {errors: errors});
+      console.log(errors[0].msg)
     }
     res.send('no errors')
 
