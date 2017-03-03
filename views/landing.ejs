@@ -14,9 +14,9 @@
                         <hr class="intro-divider">
                         <% if (errors !== undefined){ %>
                           <p>there are errors on page</p>
-                          <% for each(error in errors){ %>
-                            <li><%= error.msg%></li>
-                          <% }) %>
+                          <% for (const error of errors){ %>
+                            <li><%= error.msg %> </li>
+                          <% } %>
                         <% }  %>
                         <form method="post" action="/">
                                 <div class="form-group">
