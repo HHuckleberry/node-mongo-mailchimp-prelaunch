@@ -12,12 +12,7 @@
                         <h4 class="lSaver"> Use this page to gather followers and intrest while the application is being developed.</h4>
                         <h4 class="lSaver"> Integrate Mailchimp to send out updates and keep those interested informed.</h4>
                         <hr class="intro-divider">
-                        <% if (errors !== undefined){ %>
-                          <p>there are errors on page</p>
-                          <% for each(error in errors){ %>
-                            <li><%= error.msg%></li>
-                          <% }) %>
-                        <% }  %>
+
                         <form method="post" action="/">
                                 <div class="form-group">
                                     <label class="form-label" for="firstName"></label>
