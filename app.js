@@ -60,7 +60,6 @@ app.post('/', function (req, res, next) {
     if (!result.isEmpty()) {
       var errors = result.array();
       res.render('landing', {errors: errors});
-      console.log(errors[0].msg)
     }
     res.send('no errors')
 
