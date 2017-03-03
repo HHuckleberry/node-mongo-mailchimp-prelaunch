@@ -36,32 +36,26 @@ app.use(passport.session());
 
 app.get('/', function(req, res){
   // req.session.errors = null;
-  res.render('landing', { errors: req.session.errors});
+  res.render('landing', { errors: req.session.errors, success: req.session.success});
 
 
 
 });
 
-app.post('/', function (req, res, nexe) {
+app.post('/', function (req, res) {
 
   req.assert('firstName', 'Please enter a First Name longer than 2 characters and not more than 15').len(2, 15);
   req.assert('lastName', 'Most people have a last names between 2 and 16 characters long').len(2, 16);
   req.assert('email', 'valid email required').isEmail();
-  // var errors = req.validationErrors();
-  // if (errors) {
-  //   req.session.errors = errors;
-  //   req.session.success = false;
-  //   console.log(errors)
-  //   res.redirect('back')
-  // } else{
-  //   req.session.success = true;
-  // }
   req.getValidationResult().then(function(result) {
     if (!result.isEmpty()) {
       var errors = result.array();
-      res.render('landing', {errors: errors});
+      req.session.errors = errors;
+      req.session.success = false;
+      res.render('landing', {errors: req.session.errors, success: req.session.success});
     }
-    res.send('no errors')
+    req.session.success = true;
+    res.render('landing', {errors: req.session.errors, success: req.session.success})
 
   });
 

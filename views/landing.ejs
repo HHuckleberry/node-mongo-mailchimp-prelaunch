@@ -12,23 +12,16 @@
                         <h4 class="lSaver"> Use this page to gather followers and intrest while the application is being developed.</h4>
                         <h4 class="lSaver"> Integrate Mailchimp to send out updates and keep those interested informed.</h4>
                         <hr class="intro-divider">
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                      <% if (errors !== undefined){ %>
-                        <p>there are errors on page</p>
-                        <p><%= errors%> </p>
-                      <% }%>
->>>>>>> parent of 23c2e5e... arrrrgh
-=======
-                        <% if (errors !== undefined){ %>
-                          <p>there are errors on page</p>
-                          <% for (const error of errors){ %>
-                            <li><%= error.msg %> </li>
-                          <% } %>
-                        <% }  %>
->>>>>>> parent of 47b6c01... sdfg
+                        <% if (!success) { %>
+                          <% if (errors !== undefined){ %>
+                            <p>there are errors on page</p>
+                            <ul class="errors">
+                            <% for (const error of errors){ %>
+                              <li><%= error.msg %> </li>
+                            <% } %>
+                          </ul>
+                          <% }  %>
                         <form method="post" action="/">
                                 <div class="form-group">
                                     <label class="form-label" for="firstName"></label>
@@ -45,6 +38,15 @@
                             <input type="submit" class="btn btn-primary lSaver" value="Get Updates"/>
 
                         </form>
+                      <%  } else { %>
+                        <div class="success">
+                          <p>Thank you for signing up!</p>
+
+                        </div>
+                        <% } %>
+
+
+
 
                         <hr class="intro-divider">
                           <p>

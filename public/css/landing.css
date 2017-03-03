@@ -44,3 +44,6 @@ body{
   margin: 40px auto 0;
   font-size: 1.5em;
 }
+.form-group{
+  margin: 3px;
+}
